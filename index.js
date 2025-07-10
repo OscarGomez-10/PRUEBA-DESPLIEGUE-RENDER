@@ -15,7 +15,7 @@ app.use(express.json());
 app.use("/api", rutas_registro);
 app.use("/apiLogin", login)
 app.use("/das", dash)
-app.use(express.static("public"));
+app.use(express.static('Public'));
 
 mongoose.connect(process.env.MONGODB_CNX)
   .then(() => console.log("se conectó a MongoDB"))
