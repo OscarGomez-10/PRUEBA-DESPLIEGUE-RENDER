@@ -47,7 +47,7 @@ eye2.addEventListener("click", () => {
 
 const register = async (Name, Email, Password, Token) => {
     try {
-        const response = await fetch("http://localhost:3001/api/registro", {
+        const response = await fetch("/api/registro", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
