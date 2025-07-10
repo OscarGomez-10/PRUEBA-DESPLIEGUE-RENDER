@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashboardAdmin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="dashboardUsuario.css" />
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container-fluid">
+
+        <!-- ============================== MODALES ============================== -->
+
+        <!-- MODAL 1: REGISTRAR USUARIO/ADMINISTRADOR -->
+        <div class="modal fade" id="miModalAdmin" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-modal modal-shadow">
+
+                    <!-- Header del Modal -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tituloModal">Registrar Usuario/Administrador</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+
+                    <!-- Cuerpo del Modal -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Selector de rol -->
+                            <div class="col-md-12 mb-3">
+                                <label for="select-reg">Rol</label>
+                                <select class="form-select bg-dark text-white border-secondary rounded shadow"
+                                    id="select-reg">
+                                    <option selected disabled>SELECCIONE EL ROL DE LA PERSONA</option>
+                                    <option value="admin">ADMINISTRADOR</option>
+                                    <option value="usuario">USUARIO</option>
+                                </select>
+                            </div>
+
+                            <!-- Campo: Nombre -->
+                            <div class="col-md-12 mb-3">
+                                <label for="nombre-reg">Nombre</label>
+                                <input type="text" id="nombre-reg" class="form-control bg-input" />
+                            </div>
+
+                            <!-- Campo: Email -->
+                            <div class="col-md-12 mb-3">
+                                <label for="email-reg">Email</label>
+                                <input type="text" id="email-reg" class="form-control bg-input" />
+                            </div>
+
+                            <!-- Campo: Contraseña -->
+                            <div class="col-md-12 mb-3">
+                                <label for="contraseña-reg">Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" id="contraseña-reg" class="form-control bg-input" />
+                                    <span class="input-group-text bg-ocultar">
+                                        <i class="bi-eye" id="eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Campo: Confirmar contraseña -->
+                            <div class="col-md-12 mb-3">
+                                <label for="confi_contraseña-reg">Confirmar Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" id="confi_contraseña-reg" class="form-control bg-input" />
+                                    <span class="input-group-text bg-ocultar">
+                                        <i class="bi-eye" id="eyeCon"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Reglas de validación de contraseña -->
+                            <div class="col-md-12 mb-3">
+                                <div class="password-rules bg-dark text-white rounded shadow p-3">
+                                    <ul class="mb-0 text-center">
+                                        <li><strong>Mínimo 8 caracteres</strong></li>
+                                        <li><strong>Una letra mayúscula</strong> (A-Z)</li>
+                                        <li><strong>Una letra minúscula</strong> (a-z)</li>
+                                        <li><strong>Un número</strong> (0-9)</li>
+                                        <li><strong>Un carácter especial</strong> (!, @, #, $, etc.)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer del Modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" id="register" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 2: ACTUALIZAR INFORMACIÓN DE USUARIO -->
+        <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-modal modal-shadow">
+
+                    <!-- Header del Modal -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tituloModal">Actualizar Información</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+
+                    <!-- Cuerpo del Modal -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Campo: Nombre -->
+                            <div class="col-md-12">
+                                <label for="input-name">Nombre</label>
+                                <input type="text" id="input-name" class="form-control bg-input" />
+                            </div>
+
+                            <!-- Campo: Email -->
+                            <div class="col-md-12">
+                                <label for="input-email">Email</label>
+                                <input type="text" id="input-email" class="form-control bg-input" />
+                            </div>
+
+                            <!-- Campo: Nueva Contraseña -->
+                            <div class="col-md-12">
+                                <label for="input-password">Nueva Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" id="password-update" class="form-control bg-input" />
+                                    <span class="input-group-text bg-ocultar">
+                                        <i class="bi-eye" id="eye-update"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Campo: Confirmar Contraseña -->
+                            <div class="col-md-12">
+                                <label for="input-confirm-password">Confirmar Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" id="confirm-password-update" class="form-control bg-input" />
+                                    <span class="input-group-text bg-ocultar">
+                                        <i class="bi-eye" id="eyeCon-update"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer del Modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="save">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 3: MENÚ LATERAL RESPONSIVE -->
+        <div class="modal fade" id="miModalLateral" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog" style="margin: 0; max-width: 300px; height: 100vh;">
+                <div class="modal-content h-100 rounded-0 border-0" style="width: 300px; background-color: #1a1a1a;">
+
+                    <!-- Header del Modal -->
+                    <div class="modal-header bg-dark text-white border-0">
+                        <h5 class="modal-title" id="tituloModal">Menú Lateral</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+
+                    <!-- Cuerpo del Modal -->
+                    <div class="modal-body bg-dark text-white p-0">
+                        <div class="left-panel">
+                            <!-- Perfil del usuario -->
+                            <div class="text-center py-3 border-bottom border-secondary">
+                                <img src="IMG/iconohombre.png" alt="User" id="icono" class="rounded-circle mb-2"
+                                    width="120" height="120" />
+                                <h5 id="user-name-sidebar">Username</h5>
+                                <button id="btn-edit"
+                                    class="btn btn-dark btn-sm border border-secondary rounded-pill px-3"
+                                    data-bs-toggle="modal" data-bs-target="#miModal">Edit</button>
+                            </div>
+
+                            <!-- Opciones de navegación -->
+                            <div class="px-4 py-3">
+                                <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Dashboard</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                                    <i class="bi bi-file-earmark-bar-graph fs-5"></i>
+                                    <span>Activity</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                                    <i class="bi bi-calendar-fill"></i>
+                                    <span>Schedule</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark"
+                                    data-bs-toggle="modal" data-bs-target="#miModalAdmin">
+                                    <i class="bi bi-sliders fs-5"></i>
+                                    <span>Settings</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark"
+                                    id="btn-logout-admin">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== HEADER / BARRA SUPERIOR ============================== -->
+        <header class="container-fluid border-bottom">
+            <div class="row g-3 align-items-center justify-content-center py-3 px-3 text-center">
+
+                <!-- Logo y Título -->
+                <div
+                    class="col-12 col-md-4 d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
+                    <img src="IMG/logo4.png" alt="Logo" width="100" height="100" class="me-md-2 mb-2 mb-md-0" />
+                    <h4 class="mb-0">Wise</h4>
+                </div>
+
+                <!-- Barra de búsqueda -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <div class="input-group w-75 w-md-100" style="max-width: 400px;">
+                        <span class="input-group-text bg-dark border-0 text-white">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="custom-input form-control bg-dark text-white border-0"
+                            placeholder="Search something" />
+                    </div>
+                </div>
+
+                <!-- Botones de la barra superior -->
+                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-2">
+                    <button class="btn btn-warning py-2 px-3">Upgrade</button>
+                    <button class="btn btn-dark border border-secondary rounded py-1 px-3">
+                        <i class="bi bi-bell fs-4 text-white"></i>
+                    </button>
+                    <!-- Botón menú móvil -->
+                    <button class="btn btn-dark border border-secondary rounded py-1 px-3 d-block d-xl-none"
+                        type="button" id="logoModalLauncher">
+                        <i class="bi bi-list fs-2"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================== CONTENIDO PRINCIPAL ============================== -->
+        <div class="row">
+
+            <!-- SIDEBAR LATERAL FIJO (Desktop) -->
+            <div class="left-panel col-2 bg-dark min-vh-100 d-none d-xl-block">
+
+                <!-- Perfil de usuario -->
+                <div class="text-center py-3">
+                    <img src="IMG/iconohombre.png" alt="User" id="icono" class="rounded-circle mb-2" width="120"
+                        height="120" />
+                    <h5 id="user-name-modal">Username</h5>
+                    <button id="btn-edit-responsive"
+                        class="btn btn-dark btn-sm border border-secondary rounded-pill px-3" data-bs-toggle="modal"
+                        data-bs-target="#miModal">Edit</button>
+                </div>
+
+                <!-- Navegación del sidebar -->
+                <div class="px-5">
+                    <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                        <i class="bi bi-file-earmark-bar-graph fs-5"></i>
+                        <span>Activity</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Schedule</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark" data-bs-toggle="modal"
+                        data-bs-target="#miModalAdmin">
+                        <i class="bi bi-sliders fs-5"></i>
+                        <span>Settings</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 py-2 px-2 rounded hover-bg-dark" id="btn-logout-admin2">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL PRINCIPAL DEL DASHBOARD -->
+            <div class="right-panel col-12 col-xl-10">
+                <div class="p-4">
+
+                    <!-- ============================== GRID DE TARJETAS ============================== -->
+                    <div class="row g-4 align-items-stretch mb-4">
+
+                        <!-- TARJETA 1: Website Traffic -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div class="card card-custom h-60 w-100 p-4 rounded-4 bg-color">
+                                <!-- Header de la tarjeta -->
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="mb-0">Website traffic</h3>
+                                    <p class="mb-0 text-muted">More</p>
+                                </div>
+
+                                <!-- Gráfico circular -->
+                                <div class="d-flex justify-content-center mb-5">
+                                    <div class="progress-circle">
+                                        <svg width="120" height="120">
+                                            <!-- Círculo de fondo -->
+                                            <circle cx="60" cy="60" r="50" stroke="#000" stroke-width="10" fill="none"
+                                                stroke-dasharray="245 314" stroke-dashoffset="0" stroke-linecap="round"
+                                                transform="rotate(-90 60 60)" />
+                                            <!-- Círculo de progreso -->
+                                            <circle cx="60" cy="60" r="50" stroke="#bbb" stroke-width="10" fill="none"
+                                                stroke-dasharray="69 314" stroke-dashoffset="-250"
+                                                stroke-linecap="round" transform="rotate(-90 60 60)" />
+                                        </svg>
+                                        <div class="center-text">12k</div>
+                                    </div>
+                                </div>
+
+                                <!-- Leyenda del gráfico -->
+                                <div class="d-flex justify-content-between align-items-center py-2 bg-linea">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="cuadro bg-black"></div>
+                                        <h4 class="mb-0">Social Media</h4>
+                                    </div>
+                                    <p class="mb-0">78%</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center py-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="cuadro bg-secondary"></div>
+                                        <h4 class="mb-0">Organic Search</h4>
+                                    </div>
+                                    <p class="mb-0">22%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 2: Full Report -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div
+                                class="card card-custom p-4 rounded-4 bg-report text-white d-flex flex-column justify-content-between h-60">
+                                <!-- Header de la tarjeta -->
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <span class="download-box px-3 py-2 rounded-pill">Full Report</span>
+                                    <span class="bg-numero">/ 2023</span>
+                                </div>
+
+                                <!-- Botón de descarga -->
+                                <div class="download-box d-flex rounded-3 overflow-hidden mt-auto">
+                                    <div class="flex-grow-1 px-3 py-2 text-white">Download Report</div>
+                                    <div class="icon-box px-3 py-2 d-flex align-items-center justify-content-center">
+                                        <i class="icons bi bi-download text-white fs-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 3: Bounce Rate -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div class="card card-custom h-60 p-4 bg-opacity-25 rounded-4">
+                                <!-- Header de la tarjeta -->
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="mb-0 pb-3">Bounce Rate</h3>
+                                    <p class="mb-0"><i class="bi bi-arrow-up-right-circle-fill fs-1"></i></p>
+                                </div>
+
+                                <!-- Indicadores por día -->
+                                <div class="d-flex justify-content-center gap-4 text-center mb-5 pb-3">
+                                    <div class="card-day border border-gray mb-2 rounded-4">
+                                        <p class="mt-2 mb-1 bg-letra">Mon</p>
+                                        <h1 class="mb-0">2</h1>
+                                    </div>
+                                    <div class="card-day border border-color bg-color mb-2 rounded-4">
+                                        <p class="mt-2 mb-1 bg-letra">Tue</p>
+                                        <h1 class="mb-0">3</h1>
+                                    </div>
+                                    <div class="card-day border border-gray mb-2 rounded-4">
+                                        <p class="mt-2 mb-1 bg-letra">Wed</p>
+                                        <h1 class="mb-0">4</h1>
+                                    </div>
+                                </div>
+
+                                <!-- Estadísticas principales -->
+                                <div class="row align-items-center">
+                                    <div class="col text-end pe-4 linea">
+                                        <h1 class="display-4 fw-semibold mb-3">23%</h1>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fw-bold mb-0">-10%</p>
+                                        <h6 class="mb-0 text-muted">Since last day</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 4: ROI -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div class="card card-custom h-60 w-100 p-4 rounded-4 bg-gris text-white">
+                                <!-- Header de la tarjeta -->
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="bi bi-bar-chart-fill text-warning"></i>
+                                        <h6 class="mb-0 text-white">ROI</h6>
+                                    </div>
+                                    <small class="text-color">Details</small>
+                                </div>
+
+                                <!-- Valor principal -->
+                                <h1 class="display-4 fw-bold text-white mb-2">283%</h1>
+                                <p class="text-color mb-0">Return On Investment</p>
+
+                                <!-- Gráfico SVG -->
+                                <div class="mt-auto">
+                                    <svg width="100%" height="80" viewBox="0 0 300 80"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Línea de fondo -->
+                                        <path d="M0,40 C30,0 60,80 90,40 C120,0 150,80 180,40 C210,0 240,80 270,50"
+                                            stroke="rgba(255,255,255,0.08)" stroke-width="6" fill="none" />
+                                        <!-- Línea de datos -->
+                                        <path d="M0,40 C60,10 60,0 90,40 C120,80 150,0 180,40 C210,80 240,0 270,10"
+                                            stroke="#f4d03f" stroke-width="6" fill="none" />
+                                        <!-- Línea vertical -->
+                                        <line x1="270" y1="40" x2="270" y2="75" stroke="url(#fade)" stroke-width="4" />
+                                        <!-- Punto de datos -->
+                                        <circle cx="270" cy="10" r="6" fill="#f4d03f" />
+                                        <circle cx="270" cy="10" r="3" fill="#2c2c2c" />
+                                        <!-- Gradiente -->
+                                        <defs>
+                                            <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#f4d03f" stop-opacity="0.4" />
+                                                <stop offset="100%" stop-color="#f4d03f" stop-opacity="0" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 5: Web Score con imagen -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div class="card card-custom imagen-fija overflow-hidden position-relative rounded-4">
+                                <img src="IMG/mujer1.png" class="imagen-ajustada" alt="AI Image" />
+                                <div
+                                    class="button position-absolute bottom-0 start-50 translate-middle-x bg-color fw-semibold px-2 py-3 rounded-3 mb-3">
+                                    Web Score with AI
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 6: Customer Churn Rate -->
+                        <div class="col-xl-4 col-sm-6 col-12 mb-4">
+                            <div class="card card-custom h-60 p-4 rounded-4 bg-gris text-white d-flex flex-column">
+                                <!-- Título de la tarjeta -->
+                                <h3 class="mb-3">Customer Churn Rate</h3>
+
+                                <!-- Gráfico de barras -->
+                                <div class="position-relative mt-auto" style="height: 280px;">
+                                    <!-- Líneas de referencia -->
+                                    <div class="position-absolute w-100 h-100">
+                                        <div class="ref-line" style="top: 0;">
+                                            <small class="line-label">15</small>
+                                        </div>
+                                        <div class="ref-line" style="top: 33.3%;">
+                                            <small class="line-label">10</small>
+                                        </div>
+                                        <div class="ref-line" style="top: 66.6%;">
+                                            <small class="line-label">5</small>
+                                        </div>
+                                        <div class="ref-line" style="bottom: 7%;">
+                                            <small class="line-label">0</small>
+                                        </div>
+                                    </div>
+
+                                    <!-- Contenedor de barras -->
+                                    <div
+                                        class="bar-container d-flex justify-content-between align-items-end position-absolute w-100 bottom-0 px-3">
+                                        <!-- Barra 1 -->
+                                        <div class="text-center">
+                                            <div class="bar" style="height: 170px;"></div>
+                                            <div class="bar-label mt-2">50–100</div>
+                                        </div>
+                                        <!-- Barra 2 (destacada) -->
+                                        <div class="text-center">
+                                            <div class="bar highlight position-relative" style="height: 230px;">
+                                                <div class="bar-value bg-tooltip">12.8%</div>
+                                            </div>
+                                            <div class="bar-label mt-2">100–250</div>
+                                        </div>
+                                        <!-- Barra 3 -->
+                                        <div class="text-center">
+                                            <div class="bar" style="height: 80px;"></div>
+                                            <div class="bar-label mt-2">250–500</div>
+                                        </div>
+                                        <!-- Barra 4 -->
+                                        <div class="text-center">
+                                            <div class="bar" style="height: 150px;"></div>
+                                            <div class="bar-label mt-2">+500</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- Fin del grid de tarjetas -->
+
+                </div> <!-- Fin del contenido del dashboard -->
+            </div> <!-- Fin del panel principal -->
+        </div> <!-- Fin del contenedor principal -->
+
+    </div> <!-- Fin del container-fluid -->
+
+    <!-- ============================== SCRIPTS ============================== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dashboardAdmin.js"></script>
+
+</body>
+
+</html>

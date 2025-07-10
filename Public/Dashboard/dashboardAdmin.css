@@ -1,0 +1,335 @@
+/* 
+======================================================================
+                    DASHBOARD CSS - ESTILOS ORGANIZADOS
+======================================================================
+*/
+
+/* =====================================================================
+   1. ESTILOS GENERALES Y CONFIGURACIÓN BASE
+===================================================================== */
+
+/* Configuración del header principal */
+header {
+  padding: 0 !important;
+}
+
+/* Estilos para elementos con hover */
+.hover-bg-dark:hover {
+  background-color: #343a40;
+  cursor: pointer;
+}
+
+/* Personalización de botones de advertencia */
+.btn-warning {
+  background-color: #fcf47c !important;
+  border: none !important;
+}
+
+/* Estilos para inputs personalizados */
+.custom-input:focus {
+  border: 1px solid #777;
+  box-shadow: 0 0 0 0.25rem rgba(119, 119, 119, 0.25);
+}
+
+.custom-input::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+/* Altura estándar para todas las tarjetas del dashboard */
+.card-custom {
+  height: 382px;
+}
+
+/* Tarjeta especial para imagen con altura fija */
+.card-custom.imagen-fija {
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+  /* Evita desbordamiento de contenido */
+}
+
+/* =====================================================================
+   2. COLORES Y FONDOS REUTILIZABLES
+===================================================================== */
+
+/* Color principal amarillo del dashboard */
+.bg-color {
+  background-color: #fcf47c;
+}
+
+/* Fondo negro sólido */
+.bg-black {
+  background-color: black;
+}
+
+/* Fondo gris translúcido */
+.bg-gris {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fondo con patrón de puntos para reportes */
+.bg-report {
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: radial-gradient(#444 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Fondo para sección de descarga */
+.bg-download {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+/* Colores de texto */
+.text-color {
+  color: #a7a6a6;
+}
+
+.bg-numero {
+  color: #fcf47c;
+}
+
+.bg-letra {
+  color: gray;
+}
+
+/* =====================================================================
+   3. TARJETA 1: WEBSITE TRAFFIC (Tráfico del sitio web)
+===================================================================== */
+
+/* Contenedor principal de la tarjeta de tráfico */
+.traffic-card {
+  background-color: #fcf47c;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 400px;
+}
+
+/* Header de la tarjeta de tráfico */
+.traffic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Elementos individuales de tráfico */
+.traffic-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+/* Círculo de progreso para mostrar porcentajes */
+.progress-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+/* Texto centrado dentro del círculo de progreso */
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+}
+
+/* Cuadraditos de la leyenda */
+.legend-square {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Cuadrados pequeños para indicadores */
+.cuadro {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* =====================================================================
+   4. TARJETA 2: FULL REPORT (Reporte completo)
+===================================================================== */
+
+/* Caja de descarga con bordes */
+.download-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+}
+
+/* Caja para iconos con borde lateral */
+.icon-box {
+  border-left: 1px solid white;
+}
+
+/* =====================================================================
+   5. TARJETA 3: BOUNCE RATE (Tasa de rebote)
+===================================================================== */
+
+/* Borde con color personalizado */
+.border-color {
+  border-color: #fcf47c !important;
+}
+
+/* Tarjetas de días individuales */
+.card-day {
+  width: 65px;
+  height: 89px;
+}
+
+/* Línea separadora vertical */
+.linea {
+  border-right: solid 1px #e0e0e0;
+}
+
+/* Línea separadora horizontal */
+.bg-linea {
+  padding-bottom: 30px;
+  border-bottom: solid 1px #e0e0e0;
+}
+
+/* =====================================================================
+   6. TARJETA 4: ROI (Retorno de inversión)
+===================================================================== */
+
+/* Iconos circulares con fondo gris */
+.icons {
+  background-color: #777;
+  width: 30px;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 30px;
+}
+
+/* =====================================================================
+   7. TARJETA 5: IMAGEN (Tarjeta con imagen de fondo)
+===================================================================== */
+
+/* Imagen ajustada al contenedor */
+.imagen-ajustada {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* =====================================================================
+   8. TARJETA 6: CUSTOMER CHURN RATE (Tasa de abandono de clientes)
+===================================================================== */
+
+/* Contenedor principal de las barras */
+.bar-container {
+  height: 150px;
+}
+
+/* Barras individuales del gráfico */
+.bar {
+  width: 38px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Barra destacada (activa) */
+.bar.highlight {
+  background-color: #fcf47c;
+}
+
+/* Valores mostrados encima de cada barra */
+.bar-value {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Fondo del tooltip */
+.bg-tooltip {
+  background-color: #c1bfff;
+  color: white;
+}
+
+/* Etiquetas debajo de cada barra */
+.bar-label {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* Línea de referencia horizontal */
+.ref-line {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Etiqueta de la línea de referencia */
+.line-label {
+  position: absolute;
+  left: -25px;
+  top: -14px;
+  font-size: 12px;
+  color: #ccc;
+  padding: 5px;
+}
+
+/* =====================================================================
+   9. MEDIA QUERIES - RESPONSIVE DESIGN
+===================================================================== */
+
+/* Tablets y pantallas medianas (hasta 819px) */
+@media (max-width: 819px) {
+  .col-xl-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Móviles pequeños (hasta 340px) */
+@media (max-width: 340px) {
+
+  /* Reducir tamaño de fuente en títulos */
+  .mb-3 {
+    font-size: 18px;
+  }
+
+  /* Ajustar barras del gráfico para móviles */
+  .bar {
+    width: 25px;
+    margin: 8px !important;
+  }
+
+  /* Reducir tamaño de etiquetas */
+  .bar-label {
+    font-size: 10px;
+  }
+
+  /* Ajustar botones para móviles */
+  .button {
+    font-size: 15px !important;
+    width: 150px !important;
+    text-align: center;
+  }
+
+  /* Reducir tamaño de tarjetas de días */
+  .card-day {
+    width: 50px !important;
+    flex: 0 0 auto !important;
+  }
+}

@@ -1,0 +1,407 @@
+/* ===================================================
+   🟩 ESTILOS GENERALES DEL DASHBOARD
+   =================================================== */
+
+/* Configuración base del body - fondo oscuro */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Efecto hover para elementos con fondo oscuro */
+.hover-bg-dark:hover {
+    background-color: #343a40;
+    cursor: pointer;
+}
+
+/* Botón de advertencia con color amarillo */
+.btn-warning {
+    background-color: #fcf47c !important;
+    border: none !important;
+}
+
+/* Estilos para inputs personalizados - focus y placeholder */
+.custom-input:focus {
+    border: 1px solid #777;
+    box-shadow: 0 0 0 0.25rem rgba(119, 119, 119, 0.25);
+}
+
+.custom-input::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+
+/* Eliminar padding del header */
+header {
+    padding: 0 !important;
+}
+
+/* ===================================================
+   📦 ESTILO PARA EL MODAL DE EDITAR
+   =================================================== */
+
+/* Sombra del modal */
+.modal-shadow {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+}
+
+/* Fondo del modal */
+.bg-modal {
+    background-color: #2a2b2e;
+    color: #ffffff;
+}
+
+/* Inputs dentro del modal */
+.bg-input {
+    background-color: #1f2023;
+    color: #ffffff;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 15px;
+}
+
+/* Labels del modal */
+.modal-body label {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #e0e0e0;
+    border: none !important;
+}
+
+/* Estados hover y focus de inputs */
+.bg-input:focus,
+.bg-input:hover {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    box-shadow: none !important;
+}
+
+/* Botón secundario */
+.btn-secondary {
+    background-color: #1f2023;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(253, 102, 102);
+}
+
+/* Botón primario */
+.btn-primary {
+    background-color: #fcf47c !important;
+    color: black !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #faf7ca !important;
+}
+
+/* Eliminar bordes del modal */
+.modal-header,
+.modal-footer {
+    border: none !important;
+}
+
+/* Elemento oculto */
+.bg-ocultar {
+    background-color: #1f2023;
+    border: none !important;
+    color: white;
+}
+
+/* Configuración para grupos de inputs */
+.input-group .form-control {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right: none !important;
+}
+
+.input-group .input-group-text {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-left: none !important;
+}
+
+.input-group .form-control,
+.input-group .input-group-text {
+    box-shadow: none !important;
+}
+
+/* ===================================================
+   📦 ESTILO GENERAL PARA TODAS LAS TARJETAS
+   =================================================== */
+
+/* Altura fija para tarjetas */
+.card-custom {
+    height: 382px;
+}
+
+/* ===================================================
+   🟦 TARJETA 1: WEBSITE TRAFFIC
+   =================================================== */
+
+/* Contenedor del gráfico circular */
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+/* Texto centrado en el gráfico */
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+}
+
+/* Cuadrados de la leyenda */
+.legend-square {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Tarjeta de tráfico con fondo amarillo */
+.traffic-card {
+    background-color: #fcf47c;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 400px;
+}
+
+/* Fondo de color amarillo */
+.bg-color {
+    background-color: #fcf47c;
+}
+
+/* Línea divisoria inferior */
+.bg-linea {
+    padding-bottom: 30px;
+    border-bottom: solid 1px #e0e0e0;
+}
+
+/* Fondo negro */
+.bg-black {
+    background-color: black;
+}
+
+/* Cuadro pequeño */
+.cuadro {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+/* ===================================================
+   🟨 TARJETA 2: FULL REPORT
+   =================================================== */
+
+/* Fondo con patrón de puntos */
+.bg-report {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: radial-gradient(#444 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Caja de descarga */
+.download-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+}
+
+/* Caja de iconos */
+.icon-box {
+    border-left: 1px solid white;
+}
+
+/* Números en color amarillo */
+.bg-numero {
+    color: #fcf47c;
+}
+
+/* ===================================================
+   🟥 TARJETA 3: BOUNCE RATE
+   =================================================== */
+
+/* Borde de color amarillo */
+.border-color {
+    border-color: #fcf47c !important;
+}
+
+/* Tarjetas de días */
+.card-day {
+    width: 65px;
+    height: 89px;
+}
+
+/* Línea divisoria lateral */
+.linea {
+    border-right: solid 1px #e0e0e0;
+}
+
+/* Texto en color gris */
+.bg-letra {
+    color: gray;
+}
+
+/* ===================================================
+   🟢 TARJETA 4: ROI
+   =================================================== */
+
+/* Fondo gris transparente */
+.bg-gris {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Color de texto gris */
+.text-color {
+    color: #a7a6a6;
+}
+
+/* Iconos con fondo gris */
+.icons {
+    background-color: #777;
+    width: 30px;
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 30px;
+}
+
+/* ===================================================
+   🟣 TARJETA 5: WEB SCORE CON IMAGEN
+   =================================================== */
+
+/* Tarjeta con imagen fija */
+.card-custom.imagen-fija {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagen ajustada al contenedor */
+.imagen-ajustada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* ===================================================
+   🟤 TARJETA 6: CUSTOMER CHURN RATE
+   =================================================== */
+
+/* Contenedor de barras */
+.bar-container {
+    height: 150px;
+}
+
+/* Barras del gráfico */
+.bar {
+    width: 38px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Barra destacada */
+.bar.highlight {
+    background-color: #fcf47c;
+}
+
+/* Valores sobre las barras */
+.bar-value {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Tooltip personalizado */
+.bg-tooltip {
+    background-color: #c1bfff;
+    color: white;
+}
+
+/* Etiquetas de las barras */
+.bar-label {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Línea de referencia */
+.ref-line {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Etiqueta de la línea */
+.line-label {
+    position: absolute;
+    left: -25px;
+    top: -14px;
+    font-size: 12px;
+    color: #ccc;
+    padding: 5px;
+}
+
+/* ===================================================
+   📱 MEDIA QUERIES PARA RESPONSIVIDAD
+   =================================================== */
+
+/* Tablets hasta 819px */
+@media (max-width: 819px) {
+    .col-xl-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Móviles hasta 372px */
+@media(max-width: 372px) {
+
+    /* Reducir tamaño de fuente */
+    .mb-3 {
+        font-size: 18px;
+    }
+
+    /* Ajustar barras */
+    .bar {
+        width: 25px;
+        margin: 8px !important;
+    }
+
+    /* Etiquetas más pequeñas */
+    .bar-label {
+        font-size: 10px;
+    }
+
+    /* Botones más pequeños */
+    .button {
+        font-size: 15px !important;
+        width: 150px !important;
+        text-align: center;
+    }
+
+    /* Tarjetas de días más pequeñas */
+    .card-day {
+        width: 50px !important;
+        flex: 0 0 auto !important;
+    }
+}
